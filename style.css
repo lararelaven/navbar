@@ -8,6 +8,24 @@
     margin: 0;
 }
 
+html {
+    line-height: 1.6;
+    font-family: 'Nunito', sans-serif;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5 {
+    line-height: 1.2;
+}
+
+p,
+h1 {
+    color: #444;
+}
+
 header nav {
     display: flex;
     justify-content: space-around;
@@ -29,6 +47,11 @@ header nav ul {
     display: flex;
     gap: 1rem;
     list-style-type: none;
+}
+
+header nav ul li a {
+    display: flex;
+    align-items: center;
 }
 
 header nav ul a {
@@ -67,4 +90,226 @@ header nav ul a:not(.nav-btn) {
 header nav ul a:not(.nav-btn):hover {
     color: rgba(200, 188, 188, 0.42);
     border-bottom: 2px solid white;
+}
+
+nav i {
+    font-size: 2rem;
+    padding-left: 0.5rem;
+}
+
+.hamburger {
+    visibility: hidden;
+    display: none;
+}
+
+.hamburger-menu {
+    position: relative;
+    padding: 0.6rem 0.8rem;
+    position: absolute;
+    right: 1rem;
+    display: none;
+    justify-content: center;
+    align-items: center;
+    z-index: 999999;
+}
+
+.hamburger-icons,
+.hamburger-icons::before,
+.hamburger-icons::after {
+    content: "";
+    display: block;
+    position: absolute;
+    border-radius: 5rem;
+    width: 1.4rem;
+    height: 0.2rem;
+    background-color: white;
+    transition: all .3s ease-in-out;
+}
+
+.hamburger-icons::before {
+    transform: translateY(-0.3rem);
+}
+
+.hamburger-icons::after {
+    transform: translateY(0.3rem);
+}
+
+.hamburger:checked+.hamburger-menu .hamburger-icons {
+    background: transparent;
+    transition: none;
+}
+
+.hamburger:checked+.hamburger-menu .hamburger-icons::before {
+    transform: rotate(45deg);
+}
+
+.hamburger:checked+.hamburger-menu .hamburger-icons::after {
+    transform: rotate(-45deg);
+}
+
+.hamburger-navbar {
+    flex-direction: column;
+    position: absolute;
+    right: 0;
+    top: 0;
+    background-color: red;
+    height: 100vh;
+    width: 30vw;
+    align-items: center;
+    justify-content: center;
+    display: none;
+}
+
+
+/* Styles for Card */
+
+.card-container {
+    display: flex;
+    gap: 1rem;
+    margin: 2rem;
+    flex-wrap: wrap;
+}
+
+.card {
+    flex: 1 1 30%;
+    position: relative;
+    border: 1px solid #efefef;
+    box-shadow: 2px 6px 25px rgba(0, 0, 0, 0.1);
+    transition: all 0.3s ease;
+}
+
+.card:hover {
+    box-shadow: 2px 6px 30px rgba(0, 0, 0, 0.2);
+}
+
+.card-content {
+    padding: 30px 30px 110px;
+}
+
+.card-details {
+    position: absolute;
+    width: 100%;
+    bottom: 0;
+    left: 0;
+}
+
+.card-details-inner {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-top: 1px solid #efefef;
+    margin: 0 30px;
+    padding: 30px 0;
+}
+
+.card p {
+    margin: 0 0 30px;
+}
+
+.subtitle {
+    margin: 0 0 15px;
+    font-weight: 700;
+    font-size: 1.25rem;
+    color: #e76c67;
+}
+
+.card a {
+    text-decoration: none;
+    color: #e76c67;
+}
+
+.card .button {
+    background-color: #e76c67;
+    color: #efefef;
+    padding: 0.75rem 1rem;
+}
+
+.card .button:hover {
+    background: #63201e;
+    border: 1px solid darken(#e76c67, 10%);
+}
+
+.card-image {
+    height: 200px;
+    background-size: cover;
+    background-position: center center;
+    background-repeat: no-repeat;
+}
+
+.img1 {
+    background-image: url("./City.jpg");
+}
+
+.img2 {
+    background-image: url("./City.jpg");
+}
+
+.grid-container {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+}
+
+.grid-img {
+    height: 90%;
+    background-size: cover;
+    background-position: center center;
+    background-repeat: no-repeat;
+}
+
+.grid-img1 {
+    background-image: url("./City.jpg");
+}
+
+.grid-info {
+    padding: 6rem 2rem;
+}
+
+
+@media screen and (max-width: 1200px) {
+    .card {
+        flex: 1 1 40%;
+    }
+}
+
+@media screen and (max-width: 700px) {
+    .card {
+        flex: 1 1 90%;
+    }
+
+    .grid-container {
+        grid-template-columns: 1fr;
+        grid-auto-rows: 20rem;
+    }
+}
+
+
+
+
+
+
+
+
+
+@media screen and (max-width: 1100px) {
+    nav {
+        flex-wrap: wrap;
+    }
+}
+
+@media screen and (max-width: 800px) {
+    header nav ul:not(.hamburger-navbar) {
+        flex-wrap: wrap;
+        background-color: black;
+        padding: 50px;
+        display: none;
+    }
+
+    .hamburger-menu {
+        display: flex;
+    }
+
+    .hamburger:checked~.hamburger-navbar {
+        display: flex;
+    }
+
 }
